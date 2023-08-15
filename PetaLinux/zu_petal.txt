@@ -1,0 +1,9 @@
+ 
+ petalinux-create -t project -n ZUBoard_sensors --template zynqMP
+ 
+ petalinux-config --get-hw-description=/home/adiuvo/hdl_projects/zuboard_petalinux
+ petalinux-config -c kernel
+ petalinux-config -c rootf
+
+ petalinux-build
+ petalinux-package --boot --fsbl zynqmp_fsbl.elf --u-boot u-boot.elf --pmufw pmufw.elf --fpga system.bit --force
